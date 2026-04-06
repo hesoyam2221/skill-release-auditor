@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Skill Release Auditor</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121937;
+      --text: #eef2ff;
+      --muted: #aab4d6;
+      --accent: #7c9cff;
+      --accent2: #9bffb0;
+      --border: #263058;
+    }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: linear-gradient(180deg, #0b1020 0%, #101833 100%);
+      color: var(--text);
+      line-height: 1.55;
+    }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 32px 20px 64px; }
+    .hero, .panel { background: rgba(18,25,55,.78); border: 1px solid var(--border); border-radius: 18px; }
+    .hero { padding: 40px; }
+    h1 { font-size: 44px; margin: 0 0 12px; }
+    h2 { margin-top: 0; }
+    p, li { color: var(--muted); }
+    .cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+    .btn {
+      display: inline-block; padding: 12px 18px; border-radius: 12px; text-decoration: none;
+      border: 1px solid var(--border); color: var(--text); background: #18224b;
+    }
+    .btn.primary { background: var(--accent); color: #07102a; border-color: transparent; font-weight: 700; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-top: 22px; }
+    .panel { padding: 24px; }
+    pre {
+      overflow: auto; background: #0b1020; border: 1px solid var(--border);
+      border-radius: 12px; padding: 16px; color: #dbe5ff;
+    }
+    .badge { display: inline-block; padding: 6px 10px; border-radius: 999px; background: #1a2550; color: var(--accent2); border: 1px solid var(--border); font-size: 13px; }
+    form { display: grid; gap: 12px; }
+    input[type="email"] {
+      padding: 12px 14px; border-radius: 10px; border: 1px solid var(--border); background: #0b1020; color: var(--text);
+    }
+    footer { margin-top: 28px; color: var(--muted); font-size: 14px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <span class="badge">Beta MVP</span>
+      <h1>Catch skill launch bugs before your users do.</h1>
+      <p>Skill Release Auditor checks an OpenClaw skill for README/code mismatches, broken installers, missing tests, release contamination, and beta blockers. Then it generates a clean report, launch checklist, and teammate handoff.</p>
+      <div class="cta">
+        <a class="btn primary" href="https://github.com/YOURNAME/skill-release-auditor">Get it on GitHub</a>
+        <a class="btn" href="#signup">Get launch updates</a>
+      </div>
+    </section>
+
+    <div class="grid">
+      <section class="panel">
+        <h2>What it does</h2>
+        <ul>
+          <li>Flags README vs code mismatches</li>
+          <li>Finds broken installer file references</li>
+          <li>Warns on broad file/path access heuristics</li>
+          <li>Detects missing tests and release contamination</li>
+          <li>Outputs status, checklist, handoff, and findings JSON</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <h2>What it doesn't do yet</h2>
+        <ul>
+          <li>No semantic verification</li>
+          <li>No automatic upstream code fixes</li>
+          <li>No direct ClawHub publishing</li>
+          <li>No generated README rewrites in the free version</li>
+        </ul>
+      </section>
+    </div>
+
+    <section class="panel" style="margin-top: 18px;">
+      <h2>Screenshot-ready sample output</h2>
+      <pre># Release Audit — example-skill
+
+- Project status: 55%
+- Verdict: not ready
+
+Findings:
+- P0 Installer references missing file
+- P0 README claims missing directory
+- P0 Potentially broad file/path access
+- P1 No visible tests
+- P1 Release contamination (.git)</pre>
+    </section>
+
+    <div class="grid">
+      <section class="panel">
+        <h2>Install</h2>
+        <pre>git clone https://github.com/YOURNAME/skill-release-auditor
+cd skill-release-auditor
+python3 scripts/audit_skill.py /path/to/skill --output-dir /tmp/skill-audit --collaborator Demo</pre>
+      </section>
+
+      <section class="panel" id="signup">
+        <h2>Email signup</h2>
+        <p>Use Buttondown or Formspree for a free waitlist/update form.</p>
+        <form action="https://buttondown.email/api/emails/embed-subscribe/YOURNAME" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.email/YOURNAME', 'popupwindow')">
+          <input type="email" name="email" placeholder="you@example.com" required>
+          <button class="btn primary" type="submit">Get updates</button>
+        </form>
+      </section>
+    </div>
+
+    <section class="panel" style="margin-top: 18px;">
+      <h2>Free vs Pro</h2>
+      <div class="grid">
+        <div>
+          <h3>Free</h3>
+          <ul>
+            <li>Basic audit</li>
+            <li>Status report</li>
+            <li>Launch checklist</li>
+            <li>Teammate handoff</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Pro</h3>
+          <ul>
+            <li>Auto-fix suggestions</li>
+            <li>README rewrite draft</li>
+            <li>Test scaffold generation</li>
+            <li>Installer-fix draft</li>
+            <li>Team handoff pack</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Built for OpenClaw creators who want cleaner launches with less QA chaos.
+    </footer>
+  </div>
+</body>
+</html>

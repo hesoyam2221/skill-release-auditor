@@ -1,0 +1,71 @@
+{
+  "target": "example-skill",
+  "status_pct": 55,
+  "verdict": "not ready",
+  "inventory": {
+    "files": [
+      "README.md",
+      "install.sh",
+      "main.py",
+      "SKILL.md"
+    ],
+    "dirs": [
+      ".git",
+      "examples"
+    ],
+    "readme": true,
+    "skill": true,
+    "installer": "install.sh",
+    "tests_present": false
+  },
+  "what_works": [
+    "Package contains implementation code files",
+    "Package contains an installer script",
+    "Package contains README.md",
+    "Package contains SKILL.md"
+  ],
+  "findings": [
+    {
+      "tag": "release_contamination",
+      "severity": "P1",
+      "title": "Release tree contains non-release artifacts",
+      "detail": "Found: .git",
+      "source": "example-skill/"
+    },
+    {
+      "tag": "no_tests",
+      "severity": "P1",
+      "title": "No visible tests or smoke harness",
+      "detail": "No tests/ directory or obvious test files were found.",
+      "source": "example-skill/"
+    },
+    {
+      "tag": "installer_missing_file",
+      "severity": "P0",
+      "title": "Installer references missing file",
+      "detail": "Installer references `skill_helper.py` but it is not present in the package.",
+      "source": "example-skill/install.sh"
+    },
+    {
+      "tag": "readme_mismatch",
+      "severity": "P0",
+      "title": "README claims missing file or directory",
+      "detail": "README mentions `server/` but it was not found in the package.",
+      "source": "example-skill/README.md"
+    },
+    {
+      "tag": "readme_mismatch",
+      "severity": "P0",
+      "title": "README describes HTTP/server architecture not found in code",
+      "detail": "README appears to describe a local HTTP bridge, but no matching HTTP implementation was detected in code.",
+      "source": "example-skill/README.md"
+    },
+    {
+      "tag": "unsafe_file_access",
+      "severity": "P0",
+      "title": "Potentially broad file/path access without containment checks",
+      "detail": "Code appears to read local file paths with no visible resolve/containment boundary.",
+      "source": "example-skill/"
+    }
+  ]
+}

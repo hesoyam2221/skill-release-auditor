@@ -1,0 +1,43 @@
+{
+  "target": "/home/oscar/.openclaw/workspace/business/skill-release-auditor",
+  "status_pct": 85,
+  "verdict": "marketplace ready",
+  "inventory": {
+    "files": [
+      "SPEC.md",
+      "README.md",
+      "clawhub-listing-draft.md",
+      "tests-smoke.md",
+      "SKILL.md",
+      "self-audit/handoff.md",
+      "self-audit/findings.json",
+      "self-audit/launch-checklist.md",
+      "self-audit/status.md",
+      "references/checklists.md",
+      "references/finding-patterns.md",
+      "scripts/audit_skill.py",
+      "assets/sample-output/handoff.md",
+      "assets/sample-output/findings.json",
+      "assets/sample-output/screenshot-sample.md",
+      "assets/sample-output/launch-checklist.md",
+      "assets/sample-output/status.md"
+    ],
+    "dirs": [
+      "self-audit",
+      "assets",
+      "references",
+      "scripts",
+      "assets/sample-output"
+    ],
+    "readme": true,
+    "skill": true,
+    "installer": null,
+    "tests_present": true
+  },
+  "what_works": [
+    "Package contains implementation code files",
+    "Package contains README.md",
+    "Package contains SKILL.md"
+  ],
+  "findings": []
+}
