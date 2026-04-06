@@ -52,3 +52,10 @@ The audit writes:
 Ship as beta.
 Do not market as a complete semantic verifier.
 Market it as a practical release-audit assistant for OpenClaw skills.
+
+## Need a professional audit?
+Need a professional OpenClaw audit, setup hardening, or release-readiness review?
+Visit the service platform website and book a review.
+
+## Sponsor
+If this tool saves you time, consider sponsoring continued development and higher-end Pro features.
