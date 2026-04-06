@@ -56,7 +56,7 @@ Market it as a practical release-audit assistant for OpenClaw skills.
 ## Need a professional audit?
 Need a professional OpenClaw audit, setup hardening, or release-readiness review?
 Visit the live service platform and book a review:
-https://annually-expressed-regime-wing.trycloudflare.com
+https://dos-kde-jun-beyond.trycloudflare.com
 
 ## Sponsor
 If this tool saves you time, consider sponsoring continued development and higher-end Pro features.
