@@ -1,62 +1,54 @@
+<div align="center">
+
 # Skill Release Auditor
 
-A local OpenClaw skill that audits another skill directory for release readiness.
+**Catch security issues in OpenClaw skills before they ship.**
 
-## What it can do in this MVP
-- audit a local skill or skill-like project directory
-- detect README vs file-tree mismatches
-- detect broken installer file references
-- flag broad file/path access heuristics that need human review
-- flag missing tests
-- flag release contamination like `.git/`
-- generate:
-  - `findings.json`
-  - `status.md`
-  - `launch-checklist.md`
-  - `handoff.md`
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Version](https://img.shields.io/badge/version-0.1.0--beta-blue.svg)]()
+[![OpenClaw](https://img.shields.io/badge/OpenClaw-2026.4+-red.svg)]()
 
-## What it cannot do yet
-- fully understand code semantics
-- automatically fix upstream source code
-- generate perfect documentation rewrites from code
-- publish to ClawHub directly
-- replace real human QA judgment
+</div>
 
-## MVP status
-This is an honest MVP. It is useful now for local release audits, but it still relies on heuristics and is best used as a release reviewer assistant, not as a final authority.
+## Why?
 
-## Example usage
+- **341** malicious skills found on ClawHub (ClawHavoc, 2026)
+- **47%** of all skills have at least one security issue (Snyk)
+- **21,000+** OpenClaw instances exposed online (Censys)
+- **CVE-2026-25253** — Remote code execution via Gateway
+
+## What It Checks
+
+| Check | Severity | Description |
+|-------|----------|-------------|
+| README/code mismatch | P0 | README describes different functionality than code |
+| Broken installer refs | P0 | install.sh references missing files |
+| Unsafe file access | P0 | file: paths without containment |
+| Missing tests | P1 | No unit or smoke tests |
+| Release contamination | P1 | .git/, .env, __pycache__ in release |
+
+## Quick Start
 ```bash
-python3 scripts/audit_skill.py /path/to/skill --output-dir /path/to/output --collaborator Heso
+git clone https://github.com/hesoyam2221/skill-release-auditor.git
+cd skill-release-auditor
+python3 scripts/audit_skill.py /path/to/your/skill
 ```
 
-## Example output
-The audit writes:
-- `findings.json`
-- `status.md`
-- `launch-checklist.md`
-- `handoff.md`
+## Professional Audits
 
-## Best fit
-- skill authors preparing a beta release
-- collaborators doing QA/release work
-- ClawHub launch prep
+| Package | Price | Includes |
+|---------|-------|----------|
+| Basic | $50 | Core audit + report |
+| Standard | $100 | Full hardening + 3 skill checks |
+| Premium | $150 | Deep audit + priority support |
 
-## Current limitations
-- local directory only
-- no package/build-system integration yet
-- static heuristics only
-- smoke-test expectations still need human confirmation
+**Platform:** https://dos-kde-jun-beyond.trycloudflare.com
+**Fiverr:** https://www.fiverr.com/hesoyam2221
 
-## Release stance
-Ship as beta.
-Do not market as a complete semantic verifier.
-Market it as a practical release-audit assistant for OpenClaw skills.
+## Links
 
-## Need a professional audit?
-Need a professional OpenClaw audit, setup hardening, or release-readiness review?
-Visit the live service platform and book a review:
-https://dos-kde-jun-beyond.trycloudflare.com
+- [Auth Recovery Assistant](https://github.com/hesoyam2221/auth-recovery-assistant)
+- [YouTube — ClawSafe](https://youtube.com/@ClawSafe)
+- [Twitter](https://x.com/MaximusDev1094)
 
-## Sponsor
-If this tool saves you time, consider sponsoring continued development and higher-end Pro features.
+*Built by ClawSafe — Security + Audit for OpenClaw AI Agents*
